@@ -15,6 +15,12 @@ Thumbs.db
 # composer vendor dir
 /vendor
 
+# runtime dir
+/runtime
+
+# local dev config
+/config/db.local.php
+
 # composer itself is not needed
 composer.phar
 
