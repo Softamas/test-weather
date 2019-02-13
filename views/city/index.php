@@ -21,7 +21,7 @@ use yii\widgets\ActiveForm;
     $form = ActiveForm::begin ([
         'id' => 'weather-form',
         'method' => 'post',
-        'action' => ['city/index'],
+        'action' => ['/'],
         'options' => ['class' => 'form-horizontal'],
     ])
     ?>

@@ -7,6 +7,7 @@ $config = [
     'id' => 'weather',
     'name' => 'Погода по городам России',
     'basePath' => dirname(__DIR__),
+    'defaultRoute' => 'city/index',
     'bootstrap' => ['log'],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
