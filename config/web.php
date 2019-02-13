@@ -4,7 +4,8 @@ $params = require __DIR__ . '/params.php';
 $db = is_file (__DIR__.'/db.local.php') ? require_once (__DIR__.'/db.local.php') : require_once (__DIR__.'/db.php');
 
 $config = [
-    'id' => 'basic',
+    'id' => 'weather',
+    'name' => 'Погода по городам России',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'aliases' => [
