@@ -1,4 +1,4 @@
-# Пример сайта-погодного информера
+# Yii2 - пример интеграции с API Яндекс.Погода
 
 _Основано на [Yii 2](http://www.yiiframework.com/) Basic Project Template._
 
