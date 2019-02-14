@@ -7,10 +7,20 @@ use app\models\City;
 use Yii;
 use yii\helpers\ArrayHelper;
 
+/**
+ * Class CityController
+ * @package app\controllers
+ */
 class CityController extends \yii\web\Controller
 {
     /**
-     * @return string
+     * Действие по умолчанию
+     * Определяет город для вывода погоды.
+     * Если прогноза в БД нет или он устарел, то подгружает из yandex API.
+     * Подготавливает данные для выпадающего списка городов.
+     *
+     * @return string - представление с погодой по городу
+     * @throws \yii\httpclient\Exception
      */
     public function actionIndex ()
     {
@@ -18,7 +28,7 @@ class CityController extends \yii\web\Controller
         $cityID = isset($post['id']) ? $post['id'] : City::find()->min('id');
         $city = City::findOne ($cityID);
 
-        if ($city->updated < time() - 60*60*2) {
+        if ($city->updated < time() - Yii::$app->params['weatherCacheTime']) {
             $api = new YandexWeather();
             $weather = $api->getWeather ($city->latitude , $city->longitude);
             if ($weather) {

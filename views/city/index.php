@@ -1,5 +1,9 @@
 <?php
+
 /* @var $this yii\web\View */
+/* @var $model yii\db\ActiveRecord */
+/* @var $weather array */
+/* @var $cityList array */
 
 use yii\widgets\ActiveForm;
 

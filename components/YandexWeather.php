@@ -2,18 +2,39 @@
 
 namespace app\components;
 
-//use yii\httpclient\Client;
+use Yii;
 
+/**
+ * Class YandexWeather
+ * Класс для работы с API Яндекс.Погода
+ * @package app\components
+ */
 class YandexWeather extends \yii\httpclient\Client
 {
+    /**
+     * Базовый URL API погоды (без параметров)
+     * @var string
+     */
     public $baseUrl = 'https://api.weather.yandex.ru/v1/informers';
+
+    /**
+     * Локаль (региональные настройки)
+     * @var string
+     */
     public $lang = 'ru_RU';
 
+    /**
+     * Получает данные через API Яндекс.Погода.
+     * Автоматически конвертирует JSON в ассоциативный массив
+     *
+     * @param $lat - широта
+     * @param $lon - долгота
+     * @return array массив с данными погоды
+     * @throws \yii\httpclient\Exception
+     */
     public function getWeather ($lat, $lon)
     {
-        $apiKey = '60f7cadb-cd5f-4711-a7b6-de405b8a9b02';
-        //$apiKey = '60f7cadb-cd5f-4711-a7b6-de405';
-
+        $apiKey = Yii::$app->params['yandexApiKey'];
 
         $response = $this->get ('/', [
             'lat' => $lat,
