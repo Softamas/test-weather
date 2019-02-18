@@ -92,3 +92,26 @@ return [
 ```
 php yii migrate
 ```
+На вопрос о подтверждении применения миграций ответить Y:
+
+```
+Yii Migration Tool (based on Yii v2.0.15.1)
+
+Total 2 new migrations to be applied:
+        m190212_170132_city
+        m190213_041741_cityDataInsert
+
+Apply the above migrations? (yes|no) [no]:y
+```
+
+На некоторых хостингах при применении миграций вы можете увидеть такую ошибку:
+
+```
+Parse error:  syntax error, unexpected T_STRING, expecting T_OLD_FUNCTION or T_FUNCTION or T_VAR ...
+```
+Это означает, что консольная версия PHP ниже требуемой (например, по умолчанию вызывается PHP 5.4). В этом случае нужно свериться с документацией хостинга и вызвать для этой команды версию PHP 7.1 или выше.
+Это может выглядеть так:
+
+```
+opt/php/7.1/bin/php yii migrate
+```
